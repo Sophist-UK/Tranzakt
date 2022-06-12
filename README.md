@@ -23,6 +23,7 @@ It is intended that any final product will be delivered with:
 * User documentation (provided as help web pages delivered with the development version
 * Automated regression tests (to confirm functionality as seen by the user)
 * Automated unit tests (to confirm internal functionality esp. boundary cases)
+* Internationalisation (UK english will be default language)
 * A versioning system (to take a snapshot of a developed system and export it as a self-contained package)
 * An SQL upgrade system (to make the schema / data changes to update an older version to a newer version)
 
