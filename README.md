@@ -10,11 +10,25 @@ Inspired by Fabrik, a Joomla extension, Tranzakt is intended to provide:
 
 * Lists (tabular presentation of data - like rows in a table)
 * Forms (a single database record - possibly with sub-rows)
-* A range of data-field types (limited scope for the proof of concept) 
+* Visualisers (graphs or any other way of visualising data)
+* A range of data-field types (limited scope for the proof of concept)
+* A debugging log (issued to the JS console) showing key execution details - global summary switch, specific element detail switch.
+* Synchronous and asynchronous API (only synchronous will be delivered in the PoC) 
 * Integration with Joomla inc. integration with Joomla security (not part of proof of concept which will be entirely stand-alone)
 
-## Technology
+It is intended that any final product will be delivered with:
 
+* Both run-time and development versions
+* Internal documentation (provided using code comments)
+* User documentation (provided as help web pages delivered with the development version
+* Automated regression tests (to confirm functionality as seen by the user)
+* Automated unit tests (to confirm internal functionality esp. boundary cases)
+* A versioning system (to take a snapshot of a developed system and export it as a self-contained package)
+* An SQL upgrade system (to make the schema / data changes to update an older version to a newer version)
+
+It is not anticipated that much (if any) of the above  will be delivered as part of the PoC.
+
+## Technology
 This PoC is intended to be based on PHP for the server environment. 
 If this turns out to be lacking in functionality, then a second attempt may be made using Python.
 
@@ -40,3 +54,6 @@ The first attempt at a Proof of Concept will be based on the following other ope
 * Vue.js
 
 As development proceeds, we will likely add more technologies.
+
+## Contributions
+Contributions are welcome from anyone wishing to help develop the PoC. Please submit PRs.
