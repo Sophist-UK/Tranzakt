@@ -11,9 +11,10 @@ Inspired by Fabrik, a Joomla extension, Tranzakt is intended to provide:
 * Lists (tabular presentation of data - like rows in a table)
 * Forms (a single database record - possibly with sub-rows)
 * Visualisers (graphs or any other way of visualising data)
+* Themes - a replaceable set of element components to fit with a joomla template design or to giove an alternative visual style
 * A range of data-field types (limited scope for the proof of concept)
 * A debugging log (issued to the JS console) showing key execution details - global summary switch, specific element detail switch.
-* Synchronous and asynchronous API (only synchronous will be delivered in the PoC) 
+* Synchronous and asynchronous API (only synchronous will be delivered in the PoC)
 * Integration with Joomla inc. integration with Joomla security (not part of proof of concept which will be entirely stand-alone)
 
 It is intended that any final product will be delivered with:
@@ -30,17 +31,17 @@ It is intended that any final product will be delivered with:
 It is not anticipated that much (if any) of the above  will be delivered as part of the PoC.
 
 ## Technology
-This PoC is intended to be based on PHP for the server environment. 
+This PoC is intended to be based on PHP for the server environment.
 If this turns out to be lacking in functionality, then a second attempt may be made using Python.
 
 The reasons for delivering the run-time environment in a separate webserver instance are:
 
-* To decouple the Tranzakt code from the CMS code, 
+* To decouple the Tranzakt code from the CMS code,
 reducing the codependencies to an absolute minimum and minimising the impact of CMS changes
 (e.g. those created by Joomla 2->3 and 3->4) on the Tranzakt codebase.
 Additionally by doing this we enable the same code-base to be interfaced with several different CMSes
 (e.g. Joomla and Wordpress) broadening the user base and making the ongoing maintenance more viable.
-* To enable it to take advantage of leading server and client frameworks that will 
+* To enable it to take advantage of leading server and client frameworks that will
 massively simplify the amount of code that needs to be written,
 but which would likely be incompatible with the CMS.
 * To enable the Tranzakt code to run in parallel with the CMS web page generation code
