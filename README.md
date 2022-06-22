@@ -25,10 +25,21 @@ It is intended that any final product will be delivered with:
 * Automated regression tests (to confirm functionality as seen by the user)
 * Automated unit tests (to confirm internal functionality esp. boundary cases)
 * Internationalisation (UK english will be default language)
+* A clever caching system to improve performance - key needs are for caching to
+understand and respect security context and for cache entries to be invalidated as needed.
+To achieve this the cache naming/hashing needs to be carefully designed to
+e.g. invalidate all copies of data that has changed regardless of security context.
 * A versioning system (to take a snapshot of a developed system and export it as a self-contained package)
 * An SQL upgrade system (to make the schema / data changes to update an older version to a newer version)
 
 It is not anticipated that much (if any) of the above  will be delivered as part of the PoC.
+
+## Design principles
+
+* RESTful principles
+* Design by Contract (another way of ensuring code quality by tightly defining and policing interfaces)
+* Carefully architected small objects (because small objects are more maintainable and extensible)
+* Focus on core kernel (as a great kernel and excellent abstraction will make delivery of the range of functionality much easier)
 
 ## Technology
 This PoC is intended to be based on PHP for the server environment.
@@ -45,13 +56,13 @@ Additionally by doing this we enable the same code-base to be interfaced with se
 massively simplify the amount of code that needs to be written,
 but which would likely be incompatible with the CMS.
 * To enable the Tranzakt code to run in parallel with the CMS web page generation code
-* To enable it to use asyncronous and multi-tasking techniques to improve performance and response times
+* To enable it to use asynchronous and multi-tasking techniques to improve performance and response times
 
 The first attempt at a Proof of Concept will be based on the following other open-source technologies:
 
 * Laravel, which is itself based on...
 * Symfony (a lower level framework)
-* Doctrine (an Object Relational Mapper)
+* Eloquent (an Object Relational Mapper)
 * React.js
 * Vue.js
 
@@ -59,3 +70,5 @@ As development proceeds, we will likely add more technologies.
 
 ## Contributions
 Contributions are welcome from anyone wishing to help develop the PoC. Please submit PRs.
+
+A pre-configured development environment is delivered in [Tranzakt-dev-laragon-win64](https://github.com/Tranzakt/Tranzakt-dev-laragon-win64)
