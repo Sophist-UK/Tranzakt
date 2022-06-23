@@ -20,7 +20,11 @@ You may view the full legal CLA document [here](https://raw.githubusercontent.co
 This is a human-readable summary of (and not a substitute for) the full agreement. This highlights only some of key terms of the CLA. It has no legal value and you should carefully review all the terms of the actual CLA before agreeing.
 
 * **Transfer of copyright**:
-You give the copyright for your contribution to the Tranzakt project
+You give the copyright for any contribution you have created yourself to the Tranzakt project
+* **Confirmation of 3rd party license(s)**:
+You confirm that the Transakt project and any users of the project
+will have license rights to include and use any 3rd party software
+contained in your contribution as part of the project
 * **Grant of patent license**:
 If your contribution uses a patent you own, you give the Tranzakt project
 an unrestricted license in perpetuity to use that patent.
