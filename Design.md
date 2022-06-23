@@ -55,3 +55,9 @@ in the public webspace and / or navigate outside the public webspace using "\..\
 * **uploads** -
     optional directory to hold user uploaded files that for security reasons should not be accessible by other users.
     These files will need to be specially served by Tranzakt since they cannot be directly downloaded by the browser.
+* **user** -
+    The initial implementation of Tranzaky runtime is intended to be interpretive
+    i.e the metadata model will be queried and the application functionality dynamically
+    generated, however eventually it is hoped to provide a compiler which will compile
+    the metadata into Laravel code in this directory that can then be exported
+    and directly executed by php using a simplified Tranzakt runtime environment.
