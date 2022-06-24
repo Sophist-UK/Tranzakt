@@ -1,11 +1,8 @@
-# The Jobs Directory
-The `core/app/Jobs` directory houses the queueable jobs for Tranzakt runtime.
-A similar `admin/app/Jobs` directory holds job classes for Tranzakt development.
+# The `Models` Directory
+The `core/app/Models` directory contains most of Tranzakt's Eloquent (database) model classes.
+`admin/app/Models` may contain additional model classes.
 
-Runtime jobs may be queued by the Tranzakt user application or
-run synchronously within the current request lifecycle.
-Jobs that run synchronously during the current request
-are sometimes referred to as "commands"
-since they are an implementation of the command pattern.
-
-Job classes can be created using the `make:job` Artisan command.
+The Eloquent ORM included with Laravel provides a beautiful, simple
+ActiveRecord implementation for working with your database.
+Each database table has a corresponding "Model" which is used to interact with that table.
+Models allow you to query for data in your tables, as well as insert new records into the table.
