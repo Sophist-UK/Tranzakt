@@ -1,6 +1,6 @@
 # The `Providers` Directory
-The `core/app/Providers` directory contains all of the service providers for Tranzakt runtime.
-A matching `admin/app/Providers` directory does the same for Tranzakt developer.
+The `core/app/Providers` directory contains all of the service providers for Tranzakt Runtime.
+A matching `admin/app/Providers` directory does the same for Tranzakt Developer.
 
 Service providers bootstrap your application by binding services in the service container,
 registering events, or performing any other tasks to prepare your application for incoming requests.

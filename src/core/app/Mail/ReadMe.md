@@ -1,5 +1,5 @@
 # The `Mail` Directory
-The `core/app/Mail` directory contains classes that send emails for Transakt runtime.
+The `core/app/Mail` directory contains classes that send emails for Transakt Runtime.
 A similar `admin/app/Mail` directory holds mail classes for Tranzakt development.
 
 Mail classes can be created using the `make:mail` Artisan command.

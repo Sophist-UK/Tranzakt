@@ -1,5 +1,5 @@
 # The `app` Directory
-The `core/app` directory contains the core code of Tranzakt runtime.
+The `core/app` directory contains the core code of Tranzakt Runtime.
 A matching `admin/app` directory holds the core code of Tranzakt Development environment.
 
 This directory is namespaced under `TrzktRun`,
