@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "mateusjunges/laravel-acl": "^4.1",
-        "mews/purifier": "^3.3"
+        "mews/purifier": "^3.3",
+        "tcg/voyager": "^1.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
