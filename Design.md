@@ -98,13 +98,13 @@ or for specific activities.
 * Support for proper foreign-key relationships in SQL.
 
 # Laravel Research Results
-Laravel Scout for search
-Vite (bundled with Laravel 8) for bundling JS files to reduce number of downloads
-Mews HTMLPurifier for Laravel https://github.com/mewebstudio/Purifier to avoid XSS
-Laravel Sanctum (SPA / API authentication - for Admin pages which will be SPA)
-Laravel UI (Vue scaffolding)
-Mateus Junges' Laravel-ACL for User groups
-The Control Group's Voyager - Admin feature set which includes:
+* Laravel Scout for search
+* Vite (bundled with Laravel 8) for bundling JS files to reduce number of downloads
+* Mews HTMLPurifier for Laravel https://github.com/mewebstudio/Purifier to avoid XSS
+* Laravel Sanctum (SPA / API authentication - for Admin pages which will be SPA)
+* Laravel UI (Vue scaffolding)
+* Mateus Junges' Laravel-ACL for User groups
+* The Control Group's Voyager - Admin feature set which includes:
     * settings management
     * BREAD (CRUD) operations
     * a media manager
@@ -112,20 +112,20 @@ The Control Group's Voyager - Admin feature set which includes:
     * table management
 
 # Other resources
-vertabelo.com Physical Data Model for inspiration on table editor
-Devdojo's Wave to pick and choose functionality for:
-* Authentication - Fully loaded authentication, email verification, and password reset.
-* User Profiles - Easily Customizable User Profiles.
-* User Impersonation - Login as another user to resolve an issue/bug.
-* Billing - Allow users to pay for your service.
-* Subscription Plans - Subscription plans with different features.
-* User Roles - Assign a role and permissions to a specific plan.
-* Notifications - Ready-to-use Notification System.
-* Announcements - Notify users about new features or updates.
-* Blog - Equipped with a fully-functional blog.
-* API - Ready-to-consume API for your application
-* Themes - Fully configurable themes.
-* Voyager integration
+* vertabelo.com Physical Data Model for inspiration on table editor
+* Devdojo's Wave to pick and choose functionality for:
+    * Authentication - Fully loaded authentication, email verification, and password reset.
+    * User Profiles - Easily Customizable User Profiles.
+    * User Impersonation - Login as another user to resolve an issue/bug.
+    * Billing - Allow users to pay for your service.
+    * Subscription Plans - Subscription plans with different features.
+    * User Roles - Assign a role and permissions to a specific plan.
+    * Notifications - Ready-to-use Notification System.
+    * Announcements - Notify users about new features or updates.
+    * Blog - Equipped with a fully-functional blog.
+    * API - Ready-to-consume API for your application
+    * Themes - Fully configurable themes.
+    * Voyager integration
 
-Note: We cannot use Wave out of the box because it is not updated frequently enough, is back level.
-But we can use it as inspiration.
+    **Note:** We cannot use Wave out of the box because it is not updated frequently enough, is back level.
+    But we can use it as inspiration.
