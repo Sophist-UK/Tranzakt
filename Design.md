@@ -96,3 +96,10 @@ or for specific activities.
 * Queue management (if we ever implement batch queuing) using Laravel Horizon
 * Support for SQL Transactions - all or nothing changes on submitting a form.
 * Support for proper foreign-key relationships in SQL.
+
+# Laravel Research Results
+Laravel Scout for search
+Vite (bundled with Laravel 8) for bundling JS files to reduce number of downloads
+
+# Other resources
+vertabelo.com Physical Data Model for inspiration on table editor
