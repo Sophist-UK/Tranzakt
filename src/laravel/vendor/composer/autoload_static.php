@@ -31,6 +31,7 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '0cb4e547345e98f51201e9dde8dac7b9' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/helpers.php',
         'cb61d74ad51d00867155534456b38b23' => __DIR__ . '/..' . '/mews/purifier/src/helpers.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
@@ -125,6 +126,10 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
+        ),
+        'J' => 
+        array (
+            'Junges\\ACL\\' => 11,
         ),
         'I' => 
         array (
@@ -414,6 +419,10 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'Laravel\\Sail\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
+        ),
+        'Junges\\ACL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -2831,6 +2840,40 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Junges\\ACL\\AclRegistrar' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/AclRegistrar.php',
+        'Junges\\ACL\\Concerns\\HasGroups' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Concerns/HasGroups.php',
+        'Junges\\ACL\\Concerns\\HasPermissions' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Concerns/HasPermissions.php',
+        'Junges\\ACL\\Concerns\\RefreshesPermissionCache' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Concerns/RefreshesPermissionCache.php',
+        'Junges\\ACL\\Concerns\\TeamHasGroups' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Concerns/TeamHasGroups.php',
+        'Junges\\ACL\\Console\\Commands\\CreateGroup' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Console/Commands/CreateGroup.php',
+        'Junges\\ACL\\Console\\Commands\\CreatePermission' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Console/Commands/CreatePermission.php',
+        'Junges\\ACL\\Console\\Commands\\InstallCommand' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Console/Commands/InstallCommand.php',
+        'Junges\\ACL\\Console\\Commands\\ResetCacheCommand' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Console/Commands/ResetCacheCommand.php',
+        'Junges\\ACL\\Console\\Commands\\ShowPermissions' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Console/Commands/ShowPermissions.php',
+        'Junges\\ACL\\Console\\Commands\\UserPermissions' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Console/Commands/UserPermissions.php',
+        'Junges\\ACL\\Contracts\\Group' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Contracts/Group.php',
+        'Junges\\ACL\\Contracts\\Permission' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Contracts/Permission.php',
+        'Junges\\ACL\\Events\\GroupSaving' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Events/GroupSaving.php',
+        'Junges\\ACL\\Events\\PermissionSaving' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Events/PermissionSaving.php',
+        'Junges\\ACL\\Exceptions\\GroupAlreadyExistsException' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Exceptions/GroupAlreadyExistsException.php',
+        'Junges\\ACL\\Exceptions\\GroupDoesNotExistException' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Exceptions/GroupDoesNotExistException.php',
+        'Junges\\ACL\\Exceptions\\GuardDoesNotMatch' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Exceptions/GuardDoesNotMatch.php',
+        'Junges\\ACL\\Exceptions\\PermissionAlreadyExists' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Exceptions/PermissionAlreadyExists.php',
+        'Junges\\ACL\\Exceptions\\PermissionDoesNotExistException' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Exceptions/PermissionDoesNotExistException.php',
+        'Junges\\ACL\\Exceptions\\UnauthorizedException' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Exceptions/UnauthorizedException.php',
+        'Junges\\ACL\\Exceptions\\UserDoesNotExistException' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Exceptions/UserDoesNotExistException.php',
+        'Junges\\ACL\\Guard' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Guard.php',
+        'Junges\\ACL\\Macros\\WithGroup' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Macros/WithGroup.php',
+        'Junges\\ACL\\Macros\\WithPermission' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Macros/WithPermission.php',
+        'Junges\\ACL\\Middlewares\\GroupMiddleware' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Middlewares/GroupMiddleware.php',
+        'Junges\\ACL\\Middlewares\\PermissionMiddleware' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Middlewares/PermissionMiddleware.php',
+        'Junges\\ACL\\Middlewares\\PermissionOrGroupMiddleware' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Middlewares/PermissionOrGroupMiddleware.php',
+        'Junges\\ACL\\Models\\Group' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Models/Group.php',
+        'Junges\\ACL\\Models\\Permission' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Models/Permission.php',
+        'Junges\\ACL\\Providers\\ACLAuthServiceProvider' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Providers/ACLAuthServiceProvider.php',
+        'Junges\\ACL\\Providers\\ACLEventsServiceProvider' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Providers/ACLEventsServiceProvider.php',
+        'Junges\\ACL\\Providers\\ACLServiceProvider' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Providers/ACLServiceProvider.php',
+        'Junges\\ACL\\Providers\\ACLViewServiceProvider' => __DIR__ . '/..' . '/mateusjunges/laravel-acl/src/Providers/ACLViewServiceProvider.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
         'Laravel\\Sail\\Console\\PublishCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/PublishCommand.php',
         'Laravel\\Sail\\SailServiceProvider' => __DIR__ . '/..' . '/laravel/sail/src/SailServiceProvider.php',
