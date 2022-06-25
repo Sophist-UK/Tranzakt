@@ -100,6 +100,11 @@ or for specific activities.
 # Laravel Research Results
 Laravel Scout for search
 Vite (bundled with Laravel 8) for bundling JS files to reduce number of downloads
+Mews HTMLPurifier for Laravel https://github.com/mewebstudio/Purifier to avoid XSS
+Laravel Sanctum (SPA / API authentication - for Admin pages which will be SPA)
+Laravel UI (Vue scaffolding)
+Mateus Junges' Laravel-ACL for User groups
+Laravel Voyager for Admin, settings management, BREAD(CRUD) operations, a media manager, menu builder etc.
 
 # Other resources
 vertabelo.com Physical Data Model for inspiration on table editor
