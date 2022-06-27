@@ -7,5 +7,5 @@
 * The Control Group's Voyager 1.5.2 (for backend admin)
 * LaraCache 2.1.0 (cache ORM models)
 * Jess Archer's Laravel-castable-data-transfer-object 2.2.0 (Make columns holding JSON work like normal columns)
-* Laravel Fortify 1.13.0 (to provide user registration and authentication functionality)
 * Laravel DebugBar 3.6.7 (to provide performance tracing information at the bottom of an HTML page)
+* Laravel Jetstream (to provide user registration and authentication functionality)
