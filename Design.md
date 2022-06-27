@@ -6,12 +6,14 @@ Tranzakt apps.
 but does not have any ability to develop or modify those apps.
 The intention here is to enable the metadata for an app developed with Tranzakt developer
 to be exported from Tranzakt Developer and then imported into Tranzakt Runtime.
-* `Tranzakt Professional` - a possible future form to enhance Tranzakt Developer by allowing
-the metadata to be compiled into faster, native php code which runs with a cut-down version
-of Tranzakt Runtime.
-(This could either be integrated into Transakt Developer, or
-if revenue is needed to funding for ongoing support and development,
-then instead it could be sold as a chargeable package.
+* `Tranzakt Compiler` - a possible future enhancement
+allowing the metadata to be compiled into faster, native php code which
+makes direct calls to Tranzakt Runtime.
+This could either run through the command line,
+or on a JIT basis by tracking changes to Metadata.
+The functionality could either be integrated into Tranzakt Runtime,
+or if revenue is needed to fund ongoing support and development,
+then instead it could be sold as a chargeable additional package.
 
 # Directory structure
 The directory structure below has been defined to hold Tranzakt code
@@ -24,59 +26,46 @@ This design separates Laravel and other external open source code from Tranzakt 
 Wherever possible standard Laravel directory names are used to aid familiarity
 as defined [here](https://laravel.com/docs/9.x/structure).
 
-For security reasons, publicly accessible webspace files are held in separate directories
-from php code so that they cannot be accessed through e.g. apache/nginx webservers,
-and .htaccess etc. can be used to strengthen this by invalidating any attempt to execute php files
-in the public webspace and / or navigate outside the public webspace using "\..\".
+The standard Laravel directory stucture will be extended (by additional root sub-directories)
+to segregate files for ease of management:
+* Tranzakt Runtime
+* Tranzakt Developer
+* User developed apps
+* Tranzakt internal runtime files
+* User developed apps runtime files
 
-* **laravel** -
-    contains Laravel itself - used by both core and admin - and all additional pre-written laravel packages.
-    All directories containing Tranzakt-specific code are moved outside the Laravel directory
-    to `core` in order to provide separation of Tranzakt code and Laravel code -
-    and to separate runtime and developer code they are duplicated in the `admin` directory.
-    Laravel names are kept for the purpose of familiarity.
-* **core** -
-    contains all code necessary to run a predefined Tranzakt website
-  * **app**
-  * **bootstrap**
-  * **config**
-  * **database**
-  * **lang**
-  * **resources**
-  * **routes**
-  * **storage** -
-      contains Tranzakt files, logs etc. of interest to Tranzakt internal developers
-  * **tests** -
-      unit, functional and regression tests for Tranzakt.
-* **admin** -
-    contains code for the development environment which is **not** installed for a run-time environment.
-    Will typically mimic most of the **core** Tranzakt-specific directories in order to hold all the Tranzakt
-    development-only code. Bootstrap code will determine whether the URL/route is for admin and if so will
-    bootstrap both the core & admin environments.
-* **pages** -
-    holds static page definitions when Tranzakt is used stand-alone rather than RPC from a CMS
-* **public** -
+A decision on whether to have e.g.
+* `apps/core`
+* `tests/core`
+
+or
+
+* `core/apps`
+* `core/tests`
+
+has yet to be made and will likely depend on ease of implementation.
+
+* `userapp` -
+    Will hold static files relating to user developed Tranzakt apps
+    including static Blade templates, media etc. with subdirectories for each user app.
+    The reason this directory is not in `storage` is so that you can choose to treat it
+    as a deployment directory or not (whereas `storage` is never deployed.
+* `public` -
     the root webspace directory for the webserver - holds all publicly accessible static files
-     separate from php files which for security reasons are not directly accessible from the webserver
-  * **admin** -
-      if needed (TBD) holds admin-specific static files that need to be served
-  * **css**
-  * **js**
-  * **media** -
-      images, sounds, videos etc. provided by the developer
-  * **uploads** -
-      user uploaded files which are publicly downloadable (if you know the URL)
-* **storage** -
-    contains user-app files, logs etc. of interest to Tranzakt user-app developers
-* **uploads** -
-    optional directory to hold user uploaded files that for security reasons should not be accessible by other users.
-    These files will need to be specially served by Tranzakt since they cannot be directly downloaded by the browser.
-* **user** -
-    The initial implementation of Tranzaky runtime is intended to be interpretive
-    i.e the metadata model will be queried and the application functionality dynamically
-    generated, however eventually it is hoped to provide a compiler which will compile
-    the metadata into Laravel code in this directory that can then be exported
-    and directly executed by php using a simplified Tranzakt runtime environment.
+    separate from php files which for security reasons are not directly accessible from the webserver.
+    As per Laravel SoP, the public directory will contain subdirectories for
+    `js`, `css`, `media`, `uploads` etc. and these will contain symbolic links to other directories
+    holding the static files.
+* `storage` -
+    In addition to normal `app`, `framework` and `logs` directories this will have
+    the following subdirectories:
+    * `tranzakt_runtime`
+    * `tranzakt_dev`
+    * `userapp` containing files related to user developed Tranzakt apps.
+
+    We will try to redirect `app`, `framework` and `log` files to subdirectories
+    of the above directories however standard `app`, `framework` and `log` directories
+    will remain to catch any laravel files not redirected.
 
 # Design principles
 * Asynchronous initiation of API responses for later retrieval
@@ -102,8 +91,9 @@ or for specific activities.
 * Vite (bundled with Laravel 8) for bundling JS files to reduce number of downloads
 * Mews HTMLPurifier for Laravel https://github.com/mewebstudio/Purifier to avoid XSS
 * Laravel Sanctum (SPA / API authentication - for Admin pages which will be SPA)
-* Laravel UI (Vue scaffolding)
 * Mateus Junges' Laravel-ACL for User groups
+* Spatie Laravel-Permission - roles/permissions by Model (database)?
+* Laravel UI (Vue scaffolding)
 * The Control Group's Voyager - Admin feature set which includes:
     * settings management
     * BREAD (CRUD) operations
@@ -111,7 +101,13 @@ or for specific activities.
     * menu builder
     * table management
 
+Note: Need to choose between installed security frameworks or something else.
+
 # Other resources
+This is simply a list of resources that could be useful.
+Please feel free to add to the list when you find anything useful,
+and remove from the list once a Tranzakt component has been created using it or equivalent.
+
 * vertabelo.com Physical Data Model for inspiration on table editor
 * Devdojo's Wave to pick and choose functionality for:
     * Authentication - Fully loaded authentication, email verification, and password reset.
@@ -129,3 +125,31 @@ or for specific activities.
 
     **Note:** We cannot use Wave out of the box because it is not updated frequently enough, is back level.
     But we can use it as inspiration.
+
+* Jetstream - Fast start Login pages etc.
+* Sentry - A way of getting end-to-end exception reporting. Open Source free usage has been requested.
+
+* Spatie Laravel-backup - integrate automated backups into Tranzakt.
+* Spatie Laravel-medialibrary - integrate media file uploads / thumbnail gen etc.
+* Spatie Browsershot - possible use for creating screenshots for documentation and / or PDF's like Fabrik
+* Spatie Laravel Activity Log - programmable logging to a database table
+
+For specialised Tranzakt components:
+* Cashier - Stripe payment processing interface
+* Koel - music streaming
+* Flarum - forum software for standalone functionality
+* October CMS - standalone functionality
+* Laravel Stats Tracker
+* Laravel tags
+* Bookstack - Wiki software
+
+Other security:
+* Laratrust / Defender (very similar models) - roles / permissions by user
+
+Other admin panels:
+* Orchid
+
+# Design questions
+We need to decide:
+* Do we need a (Component based) plugin architecture like Fabrik's to keep both disk space and attack surface down
+or can we simply have an enable/disable setting?
