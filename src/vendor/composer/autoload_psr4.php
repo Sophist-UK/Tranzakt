@@ -76,7 +76,6 @@ return array(
     'Laravel\\Jetstream\\' => array($vendorDir . '/laravel/jetstream/src'),
     'Laravel\\Fortify\\' => array($vendorDir . '/laravel/fortify/src'),
     'Larapack\\DoctrineSupport\\' => array($vendorDir . '/larapack/doctrine-support/src'),
-    'Junges\\ACL\\' => array($vendorDir . '/mateusjunges/laravel-acl/src'),
     'JessArcher\\CastableDataTransferObject\\' => array($vendorDir . '/jessarcher/laravel-castable-data-transfer-object/src'),
     'Jenssegers\\Agent\\' => array($vendorDir . '/jenssegers/agent/src'),
     'Jaybizzle\\CrawlerDetect\\' => array($vendorDir . '/jaybizzle/crawler-detect/src'),
