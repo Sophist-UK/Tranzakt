@@ -6,3 +6,4 @@
 * Spatie Laravel-Permission 5.5.4
 * The Control Group's Voyager 1.5.2
 * LaraCache 2.1.0 (cache ORM models)
+* Jess Archer's Laravel-castable-data-transfer-object 2.2.0 (Make columns holding JSON work like normal columns)
