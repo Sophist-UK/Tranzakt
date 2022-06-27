@@ -5,3 +5,4 @@
 * Mateus Junges' Laravel-ACL 4.1.1
 * Spatie Laravel-Permission 5.5.4
 * The Control Group's Voyager 1.5.2
+* LaraCache 2.1.0 (cache ORM models)
