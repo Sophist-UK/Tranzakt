@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+		use Illuminate\Database\Eloquent\Model;
+
     /**
      * Register any application services.
      *
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Model::preventLazyLoading(! $this->app->isProduction());
+        Model::preventLazyLoading();
     }
 }
