@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ef4a9559995b7fe8a12ddcd955dcc77398bfc5fe',
+        'reference' => '5a6ebf8dac1d80f3298d943e067b992bd9308d12',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -255,6 +255,15 @@
             'install_path' => __DIR__ . '/../hamcrest/hamcrest-php',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'haruncpi/laravel-option-framework' => array(
+            'pretty_version' => 'v1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '125cb6d1a1b73e1a593c5264bcd5bf4d6992ceb3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../haruncpi/laravel-option-framework',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
@@ -547,7 +556,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ef4a9559995b7fe8a12ddcd955dcc77398bfc5fe',
+            'reference' => '5a6ebf8dac1d80f3298d943e067b992bd9308d12',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

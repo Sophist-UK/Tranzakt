@@ -12,3 +12,4 @@
   plus Inertia for Vue integration
 * bennett-treptow/laravel-migration-generator - create migrate table definitions from database tables
 * kirschbaum-development/eloquent-power-joins - do joins with this using proper relationships rather than the join method
+* haruncpi/laravel-option-framework 1.0.0 - easy backend options page
