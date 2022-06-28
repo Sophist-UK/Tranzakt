@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aac6f2aabd68c8df782f1910388bd77a",
+    "content-hash": "bd4579ba57457b402d2403c1a7a7363e",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -210,6 +210,72 @@
                 }
             ],
             "time": "2022-02-09T07:52:32+00:00"
+        },
+        {
+            "name": "bennett-treptow/laravel-migration-generator",
+            "version": "4.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bennett-treptow/laravel-migration-generator.git",
+                "reference": "97569525b82c84f6a01b4611d42aa8b85bfb51f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bennett-treptow/laravel-migration-generator/zipball/97569525b82c84f6a01b4611d42aa8b85bfb51f3",
+                "reference": "97569525b82c84f6a01b4611d42aa8b85bfb51f3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/console": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/database": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+                "marcj/topsort": "^2.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^6.17"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelMigrationGenerator\\LaravelMigrationGeneratorProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelMigrationGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bennett Treptow",
+                    "email": "me@btreptow.com"
+                }
+            ],
+            "description": "Generate migrations from existing database structures",
+            "support": {
+                "issues": "https://github.com/bennett-treptow/laravel-migration-generator/issues",
+                "source": "https://github.com/bennett-treptow/laravel-migration-generator/tree/4.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://buymeacoffee.com/btreptow",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/bennett-treptow",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-09T21:55:33+00:00"
         },
         {
             "name": "brick/math",
@@ -1890,6 +1956,68 @@
             "time": "2022-04-25T12:34:02+00:00"
         },
         {
+            "name": "kirschbaum-development/eloquent-power-joins",
+            "version": "2.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kirschbaum-development/eloquent-power-joins.git",
+                "reference": "98e0ecc6844014a0169115ebea9985a89bbc61f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kirschbaum-development/eloquent-power-joins/zipball/98e0ecc6844014a0169115ebea9985a89bbc61f2",
+                "reference": "98e0ecc6844014a0169115ebea9985a89bbc61f2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.0@dev",
+                "orchestra/testbench": "4.*|5.*|6.*|7.*",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kirschbaum\\PowerJoins\\PowerJoinsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kirschbaum\\PowerJoins\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luis Dalmolin",
+                    "email": "luis.nh@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The Laravel magic applied to joins.",
+            "homepage": "https://github.com/kirschbaum-development/eloquent-power-joins",
+            "keywords": [
+                "eloquent",
+                "join",
+                "laravel",
+                "mysql"
+            ],
+            "support": {
+                "issues": "https://github.com/kirschbaum-development/eloquent-power-joins/issues",
+                "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/2.6.4"
+            },
+            "time": "2022-04-06T22:58:03+00:00"
+        },
+        {
             "name": "larapack/doctrine-support",
             "version": "v0.1.9",
             "source": {
@@ -2839,6 +2967,68 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "marcj/topsort",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marcj/topsort.php.git",
+                "reference": "972f58e42b5f110a0a1d8433247f65248abcfd5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marcj/topsort.php/zipball/972f58e42b5f110a0a1d8433247f65248abcfd5c",
+                "reference": "972f58e42b5f110a0a1d8433247f65248abcfd5c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "^9",
+                "symfony/console": "~2.5 || ~3.0 || ~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MJS\\TopSort\\": "src/",
+                    "MJS\\TopSort\\Tests\\": "tests/Tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc J. Schmidt",
+                    "email": "marc@marcjschmidt.de"
+                }
+            ],
+            "description": "High-Performance TopSort/Dependency resolving algorithm",
+            "keywords": [
+                "dependency resolving",
+                "topological sort",
+                "topsort"
+            ],
+            "support": {
+                "issues": "https://github.com/marcj/topsort.php/issues",
+                "source": "https://github.com/marcj/topsort.php/tree/2.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/marcj",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-09-24T12:39:55+00:00"
         },
         {
             "name": "maximebf/debugbar",

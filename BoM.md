@@ -9,3 +9,6 @@
 * Jess Archer's Laravel-castable-data-transfer-object 2.2.0 (Make columns holding JSON work like normal columns)
 * Laravel DebugBar 3.6.7 (to provide performance tracing information at the bottom of an HTML page)
 * Laravel Jetstream (to provide user registration and authentication functionality)
+  plus Inertia for Vue integration
+* bennett-treptow/laravel-migration-generator - create migrate table definitions from database tables
+* kirschbaum-development/eloquent-power-joins - do joins with this using proper relationships rather than the join method

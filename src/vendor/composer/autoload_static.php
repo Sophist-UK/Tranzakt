@@ -212,6 +212,8 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
             'Mostafaznv\\LaraCache\\' => 21,
             'Monolog\\' => 8,
             'Mews\\Purifier\\' => 14,
+            'MJS\\TopSort\\Tests\\' => 18,
+            'MJS\\TopSort\\' => 12,
         ),
         'L' => 
         array (
@@ -226,7 +228,12 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
             'Laravel\\Sail\\' => 13,
             'Laravel\\Jetstream\\' => 18,
             'Laravel\\Fortify\\' => 16,
+            'LaravelMigrationGenerator\\' => 26,
             'Larapack\\DoctrineSupport\\' => 25,
+        ),
+        'K' => 
+        array (
+            'Kirschbaum\\PowerJoins\\' => 22,
         ),
         'J' => 
         array (
@@ -530,6 +537,14 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         array (
             0 => __DIR__ . '/..' . '/mews/purifier/src',
         ),
+        'MJS\\TopSort\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/marcj/topsort/tests/Tests',
+        ),
+        'MJS\\TopSort\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/marcj/topsort/src',
+        ),
         'League\\MimeTypeDetection\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
@@ -574,9 +589,17 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         array (
             0 => __DIR__ . '/..' . '/laravel/fortify/src',
         ),
+        'LaravelMigrationGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src',
+        ),
         'Larapack\\DoctrineSupport\\' => 
         array (
             0 => __DIR__ . '/..' . '/larapack/doctrine-support/src',
+        ),
+        'Kirschbaum\\PowerJoins\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src',
         ),
         'JessArcher\\CastableDataTransferObject\\' => 
         array (
@@ -3746,12 +3769,57 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'JessArcher\\CastableDataTransferObject\\CastUsingJsonFlags' => __DIR__ . '/..' . '/jessarcher/laravel-castable-data-transfer-object/src/CastUsingJsonFlags.php',
         'JessArcher\\CastableDataTransferObject\\CastableDataTransferObject' => __DIR__ . '/..' . '/jessarcher/laravel-castable-data-transfer-object/src/CastableDataTransferObject.php',
         'JessArcher\\CastableDataTransferObject\\Casts\\DataTransferObject' => __DIR__ . '/..' . '/jessarcher/laravel-castable-data-transfer-object/src/Casts/DataTransferObject.php',
+        'Kirschbaum\\PowerJoins\\EloquentJoins' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/EloquentJoins.php',
+        'Kirschbaum\\PowerJoins\\FakeJoinCallback' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/FakeJoinCallback.php',
+        'Kirschbaum\\PowerJoins\\Mixins\\JoinRelationship' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/Mixins/JoinRelationship.php',
+        'Kirschbaum\\PowerJoins\\Mixins\\QueryBuilderExtraMethods' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/Mixins/QueryBuilderExtraMethods.php',
+        'Kirschbaum\\PowerJoins\\Mixins\\QueryRelationshipExistence' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/Mixins/QueryRelationshipExistence.php',
+        'Kirschbaum\\PowerJoins\\Mixins\\RelationshipsExtraMethods' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/Mixins/RelationshipsExtraMethods.php',
+        'Kirschbaum\\PowerJoins\\PowerJoinClause' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/PowerJoinClause.php',
+        'Kirschbaum\\PowerJoins\\PowerJoins' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/PowerJoins.php',
+        'Kirschbaum\\PowerJoins\\PowerJoinsServiceProvider' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/PowerJoinsServiceProvider.php',
+        'Kirschbaum\\PowerJoins\\StaticCache' => __DIR__ . '/..' . '/kirschbaum-development/eloquent-power-joins/src/StaticCache.php',
         'Larapack\\DoctrineSupport\\Column' => __DIR__ . '/..' . '/larapack/doctrine-support/src/Column.php',
         'Larapack\\DoctrineSupport\\Connections\\MySqlConnection' => __DIR__ . '/..' . '/larapack/doctrine-support/src/Connections/MySqlConnection.php',
         'Larapack\\DoctrineSupport\\DoctrineSupportServiceProvider' => __DIR__ . '/..' . '/larapack/doctrine-support/src/DoctrineSupportServiceProvider.php',
         'Larapack\\DoctrineSupport\\Drivers\\MySqlDriver' => __DIR__ . '/..' . '/larapack/doctrine-support/src/Drivers/MySqlDriver.php',
         'Larapack\\DoctrineSupport\\Managers\\MySqlSchemaManager' => __DIR__ . '/..' . '/larapack/doctrine-support/src/Managers/MySqlSchemaManager.php',
         'Larapack\\DoctrineSupport\\Types\\EnumType' => __DIR__ . '/..' . '/larapack/doctrine-support/src/Types/EnumType.php',
+        'LaravelMigrationGenerator\\Commands\\GenerateMigrationsCommand' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Commands/GenerateMigrationsCommand.php',
+        'LaravelMigrationGenerator\\Definitions\\ColumnDefinition' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Definitions/ColumnDefinition.php',
+        'LaravelMigrationGenerator\\Definitions\\IndexDefinition' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Definitions/IndexDefinition.php',
+        'LaravelMigrationGenerator\\Definitions\\TableDefinition' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Definitions/TableDefinition.php',
+        'LaravelMigrationGenerator\\Definitions\\ViewDefinition' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Definitions/ViewDefinition.php',
+        'LaravelMigrationGenerator\\Formatters\\TableFormatter' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Formatters/TableFormatter.php',
+        'LaravelMigrationGenerator\\Formatters\\ViewFormatter' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Formatters/ViewFormatter.php',
+        'LaravelMigrationGenerator\\GeneratorManagers\\BaseGeneratorManager' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/GeneratorManagers/BaseGeneratorManager.php',
+        'LaravelMigrationGenerator\\GeneratorManagers\\Interfaces\\GeneratorManagerInterface' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/GeneratorManagers/Interfaces/GeneratorManagerInterface.php',
+        'LaravelMigrationGenerator\\GeneratorManagers\\MySQLGeneratorManager' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/GeneratorManagers/MySQLGeneratorManager.php',
+        'LaravelMigrationGenerator\\Generators\\BaseTableGenerator' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/BaseTableGenerator.php',
+        'LaravelMigrationGenerator\\Generators\\BaseViewGenerator' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/BaseViewGenerator.php',
+        'LaravelMigrationGenerator\\Generators\\Concerns\\CleansUpColumnIndices' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Concerns/CleansUpColumnIndices.php',
+        'LaravelMigrationGenerator\\Generators\\Concerns\\CleansUpForeignKeyIndices' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Concerns/CleansUpForeignKeyIndices.php',
+        'LaravelMigrationGenerator\\Generators\\Concerns\\CleansUpMorphColumns' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Concerns/CleansUpMorphColumns.php',
+        'LaravelMigrationGenerator\\Generators\\Concerns\\CleansUpTimestampsColumn' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Concerns/CleansUpTimestampsColumn.php',
+        'LaravelMigrationGenerator\\Generators\\Concerns\\WritesToFile' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Concerns/WritesToFile.php',
+        'LaravelMigrationGenerator\\Generators\\Concerns\\WritesViewsToFile' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Concerns/WritesViewsToFile.php',
+        'LaravelMigrationGenerator\\Generators\\Interfaces\\TableGeneratorInterface' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Interfaces/TableGeneratorInterface.php',
+        'LaravelMigrationGenerator\\Generators\\Interfaces\\ViewGeneratorInterface' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/Interfaces/ViewGeneratorInterface.php',
+        'LaravelMigrationGenerator\\Generators\\MySQL\\TableGenerator' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/MySQL/TableGenerator.php',
+        'LaravelMigrationGenerator\\Generators\\MySQL\\ViewGenerator' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Generators/MySQL/ViewGenerator.php',
+        'LaravelMigrationGenerator\\Helpers\\ConfigResolver' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Helpers/ConfigResolver.php',
+        'LaravelMigrationGenerator\\Helpers\\DependencyResolver' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Helpers/DependencyResolver.php',
+        'LaravelMigrationGenerator\\Helpers\\Formatter' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Helpers/Formatter.php',
+        'LaravelMigrationGenerator\\Helpers\\ValueToString' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Helpers/ValueToString.php',
+        'LaravelMigrationGenerator\\Helpers\\WritableTrait' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Helpers/WritableTrait.php',
+        'LaravelMigrationGenerator\\LaravelMigrationGeneratorProvider' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/LaravelMigrationGeneratorProvider.php',
+        'LaravelMigrationGenerator\\Tokenizers\\BaseColumnTokenizer' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Tokenizers/BaseColumnTokenizer.php',
+        'LaravelMigrationGenerator\\Tokenizers\\BaseIndexTokenizer' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Tokenizers/BaseIndexTokenizer.php',
+        'LaravelMigrationGenerator\\Tokenizers\\BaseTokenizer' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Tokenizers/BaseTokenizer.php',
+        'LaravelMigrationGenerator\\Tokenizers\\Interfaces\\ColumnTokenizerInterface' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Tokenizers/Interfaces/ColumnTokenizerInterface.php',
+        'LaravelMigrationGenerator\\Tokenizers\\Interfaces\\IndexTokenizerInterface' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Tokenizers/Interfaces/IndexTokenizerInterface.php',
+        'LaravelMigrationGenerator\\Tokenizers\\MySQL\\ColumnTokenizer' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Tokenizers/MySQL/ColumnTokenizer.php',
+        'LaravelMigrationGenerator\\Tokenizers\\MySQL\\IndexTokenizer' => __DIR__ . '/..' . '/bennett-treptow/laravel-migration-generator/src/Tokenizers/MySQL/IndexTokenizer.php',
         'Laravel\\Fortify\\Actions\\AttemptToAuthenticate' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/AttemptToAuthenticate.php',
         'Laravel\\Fortify\\Actions\\CompletePasswordReset' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/CompletePasswordReset.php',
         'Laravel\\Fortify\\Actions\\ConfirmPassword' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/ConfirmPassword.php',
@@ -4297,6 +4365,19 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
+        'MJS\\TopSort\\CircularDependencyException' => __DIR__ . '/..' . '/marcj/topsort/src/CircularDependencyException.php',
+        'MJS\\TopSort\\Command\\BenchmarkCommand' => __DIR__ . '/..' . '/marcj/topsort/src/Command/BenchmarkCommand.php',
+        'MJS\\TopSort\\ElementNotFoundException' => __DIR__ . '/..' . '/marcj/topsort/src/ElementNotFoundException.php',
+        'MJS\\TopSort\\GroupedTopSortInterface' => __DIR__ . '/..' . '/marcj/topsort/src/GroupedTopSortInterface.php',
+        'MJS\\TopSort\\Implementations\\ArraySort' => __DIR__ . '/..' . '/marcj/topsort/src/Implementations/ArraySort.php',
+        'MJS\\TopSort\\Implementations\\BaseImplementation' => __DIR__ . '/..' . '/marcj/topsort/src/Implementations/BaseImplementation.php',
+        'MJS\\TopSort\\Implementations\\FixedArraySort' => __DIR__ . '/..' . '/marcj/topsort/src/Implementations/FixedArraySort.php',
+        'MJS\\TopSort\\Implementations\\GroupedArraySort' => __DIR__ . '/..' . '/marcj/topsort/src/Implementations/GroupedArraySort.php',
+        'MJS\\TopSort\\Implementations\\GroupedStringSort' => __DIR__ . '/..' . '/marcj/topsort/src/Implementations/GroupedStringSort.php',
+        'MJS\\TopSort\\Implementations\\StringSort' => __DIR__ . '/..' . '/marcj/topsort/src/Implementations/StringSort.php',
+        'MJS\\TopSort\\Tests\\GroupedSortTest' => __DIR__ . '/..' . '/marcj/topsort/tests/Tests/GroupedSortTest.php',
+        'MJS\\TopSort\\Tests\\SimpleSortTest' => __DIR__ . '/..' . '/marcj/topsort/tests/Tests/SimpleSortTest.php',
+        'MJS\\TopSort\\TopSortInterface' => __DIR__ . '/..' . '/marcj/topsort/src/TopSortInterface.php',
         'Mews\\Purifier\\Casts\\CleanHtml' => __DIR__ . '/..' . '/mews/purifier/src/Casts/CleanHtml.php',
         'Mews\\Purifier\\Casts\\CleanHtmlInput' => __DIR__ . '/..' . '/mews/purifier/src/Casts/CleanHtmlInput.php',
         'Mews\\Purifier\\Casts\\CleanHtmlOutput' => __DIR__ . '/..' . '/mews/purifier/src/Casts/CleanHtmlOutput.php',

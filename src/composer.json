@@ -7,9 +7,11 @@
     "require": {
         "php": "^8.0.2",
         "barryvdh/laravel-debugbar": "^3.6",
+        "bennett-treptow/laravel-migration-generator": "^4.2",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.5.2",
         "jessarcher/laravel-castable-data-transfer-object": "^2.2",
+        "kirschbaum-development/eloquent-power-joins": "^2.6",
         "laravel/framework": "^9.11",
         "laravel/jetstream": "^2.8",
         "laravel/sanctum": "^2.14.1",
