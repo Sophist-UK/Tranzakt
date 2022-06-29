@@ -6,10 +6,6 @@ For example, on a developer screen showing form elements, their properties and a
 view of the form, when a user selects a different element, property details are retrieved
 and dispatched to the properties panel using a broadcast.
 
-The `core/app/Broadcasting` directory contains all of the broadcast channel classes
-for the Transakt run-time environment.
-Broadcast channel classes for development are held in `admin/app/Broadcasting`.
-
 These classes are generated using the make:channel command.
 
 To learn more about channels, check out the Laravel documentation

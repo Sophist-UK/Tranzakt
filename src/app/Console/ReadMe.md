@@ -1,6 +1,5 @@
 # The `Console` Directory
-The `core/app/Console` directory contains all of the custom Artisan commands for Transakt Runtime.
-A matching `admin/app/Console` directory contains similar Artisan commands for Transakt Development.
+The `app/Console` directory contains all of the custom Artisan commands.
 
 These commands may be generated using the `make:command` Artisan command.
 

@@ -1,6 +1,5 @@
 # The `Routes` Directory
-The `core/routes` directory contains all of the route definitions for Tranzakt Runtime.
-A matching `admin/routes` directory contains equivalent route definitions for Tranzakt Developer.
+The `routes` directory contains all of the route definitions for Tranzakt.
 
 Routes are Laravel's means by which URLs or API calls or console commands are directed to
 the correct Laravel code.

@@ -1,9 +1,5 @@
 # The `app` Directory
-The `core/app` directory contains the core code of Tranzakt Runtime.
-A matching `admin/app` directory holds the core code of Tranzakt Development environment.
-
-This directory is namespaced under `TrzktRun`,
-and is autoloaded by Composer using the PSR-4 autoloading standard.
+The `app` directory contains the core code for Tranzakt.
 
 The `app` directory contains a variety of additional directories
 such as `Console`, `Http`, and `Providers`.

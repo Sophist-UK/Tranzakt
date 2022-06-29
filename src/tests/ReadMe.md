@@ -1,11 +1,10 @@
 # The `Tests` Directory
-The `core/tests` directory contains automated tests for Tranzakt Runtime,
-with a matching `admin/tests` directory for Tranzakt Developer.
+The `tests` directory contains automated tests for Tranzakt.
 
 phpUnit is used by Laravel & Tranzakt for unit testing php code.
 
-Laravel Dusk is used for automated browser regression testing of web functionality as seen
-by the user.
+Laravel Dusk will be used for automated browser regression testing
+of front-end web functionality as seen by the user.
 
 Each test class should be suffixed with the word Test.
 

@@ -1,6 +1,5 @@
 # The `Models` Directory
-The `core/app/Models` directory contains most of Tranzakt's Eloquent (database) model classes.
-`admin/app/Models` may contain additional model classes.
+The `app/Models` directory contains most of Tranzakt's Eloquent (database) model classes.
 
 The Eloquent ORM included with Laravel provides a beautiful, simple
 ActiveRecord implementation for working with your database.

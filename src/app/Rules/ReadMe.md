@@ -2,8 +2,10 @@
 **All** incoming data needs to be validate to confirm that it is valid data.
 Rules encapsulate complicated validation logic in a simple object.
 
-The `core/app/Rules` directory contains the custom validation rule objects for Tranzakt Runtime.
-A matching `admin\app\Rules` directory contains similar validation rule objects for Tranzakt Developer.
+For Tranzakt, validation will need to be done in an identical fashion
+in both browser and server and these objects will facilitate this.
+
+The `app/Rules` directory contains the custom validation rule objects for Tranzakt.
 
 Rule objects can be created if you execute the `make:rule` Artisan command.
 

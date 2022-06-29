@@ -1,5 +1,5 @@
 # The `Bootstrap` Directory
-The `core/bootstrap` directory contains the app.php file which bootstraps the framework.
+The `bootstrap` directory contains the app.php file which bootstraps the framework.
 
 This directory also houses a cache directory which contains framework generated files
 for performance optimization such as the route and services cache files.
