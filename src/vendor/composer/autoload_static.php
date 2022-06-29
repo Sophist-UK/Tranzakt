@@ -302,6 +302,7 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'A' => 
         array (
             'Arrilot\\Widgets\\' => 16,
+            'ArchTech\\Enums\\' => 15,
             'App\\' => 4,
         ),
     );
@@ -756,6 +757,10 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         array (
             0 => __DIR__ . '/..' . '/arrilot/laravel-widgets/src',
         ),
+        'ArchTech\\Enums\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/archtechx/enums/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -824,6 +829,16 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'App\\Providers\\FortifyServiceProvider' => __DIR__ . '/../..' . '/app/Providers/FortifyServiceProvider.php',
         'App\\Providers\\JetstreamServiceProvider' => __DIR__ . '/../..' . '/app/Providers/JetstreamServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'ArchTech\\Enums\\Exceptions\\UndefinedCaseError' => __DIR__ . '/..' . '/archtechx/enums/src/Exceptions/UndefinedCaseError.php',
+        'ArchTech\\Enums\\From' => __DIR__ . '/..' . '/archtechx/enums/src/From.php',
+        'ArchTech\\Enums\\InvokableCases' => __DIR__ . '/..' . '/archtechx/enums/src/InvokableCases.php',
+        'ArchTech\\Enums\\Meta\\Meta' => __DIR__ . '/..' . '/archtechx/enums/src/Meta/Meta.php',
+        'ArchTech\\Enums\\Meta\\MetaProperty' => __DIR__ . '/..' . '/archtechx/enums/src/Meta/MetaProperty.php',
+        'ArchTech\\Enums\\Meta\\Reflection' => __DIR__ . '/..' . '/archtechx/enums/src/Meta/Reflection.php',
+        'ArchTech\\Enums\\Metadata' => __DIR__ . '/..' . '/archtechx/enums/src/Metadata.php',
+        'ArchTech\\Enums\\Names' => __DIR__ . '/..' . '/archtechx/enums/src/Names.php',
+        'ArchTech\\Enums\\Options' => __DIR__ . '/..' . '/archtechx/enums/src/Options.php',
+        'ArchTech\\Enums\\Values' => __DIR__ . '/..' . '/archtechx/enums/src/Values.php',
         'Arrilot\\Widgets\\AbstractWidget' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/AbstractWidget.php',
         'Arrilot\\Widgets\\AsyncFacade' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/AsyncFacade.php',
         'Arrilot\\Widgets\\Console\\WidgetMakeCommand' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/Console/WidgetMakeCommand.php',

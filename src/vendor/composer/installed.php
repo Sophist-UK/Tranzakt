@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5a6ebf8dac1d80f3298d943e067b992bd9308d12',
+        'reference' => 'a9e30e2269f6c0bef93e24a0edd45cf074533358',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'archtechx/enums' => array(
+            'pretty_version' => 'v0.3.0',
+            'version' => '0.3.0.0',
+            'reference' => '7e17b844510c0087868b20f12f8556191caf4501',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../archtechx/enums',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'arrilot/laravel-widgets' => array(
             'pretty_version' => '3.13.1',
             'version' => '3.13.1.0',
@@ -556,7 +565,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5a6ebf8dac1d80f3298d943e067b992bd9308d12',
+            'reference' => 'a9e30e2269f6c0bef93e24a0edd45cf074533358',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
