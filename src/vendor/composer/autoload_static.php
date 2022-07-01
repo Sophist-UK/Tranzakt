@@ -119,7 +119,6 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         '356736db98a6834f0a886b8d509b0ecd' => __DIR__ . '/..' . '/thecodingmachine/safe/generated/zlib.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        'd7d51e94dd70e5b07180984ba3f53065' => __DIR__ . '/..' . '/haruncpi/laravel-option-framework/src/helpers.php',
         '98caa11a197f6516a8e48aa4abb5ccc6' => __DIR__ . '/..' . '/inertiajs/inertia-laravel/helpers.php',
         'cb61d74ad51d00867155534456b38b23' => __DIR__ . '/..' . '/mews/purifier/src/helpers.php',
         'bed883b41aa12d78af4d9b205d119e9d' => __DIR__ . '/..' . '/mostafaznv/laracache/src/Utils/Helpers.php',
@@ -252,10 +251,6 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
             'Illuminate\\Support\\' => 19,
             'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\' => 11,
-        ),
-        'H' => 
-        array (
-            'Haruncpi\\LaravelOptionFramework\\' => 32,
         ),
         'G' => 
         array (
@@ -655,10 +650,6 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
-        ),
-        'Haruncpi\\LaravelOptionFramework\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/haruncpi/laravel-option-framework/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -2573,9 +2564,6 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
-        'Haruncpi\\LaravelOptionFramework\\Controllers\\OptionController' => __DIR__ . '/..' . '/haruncpi/laravel-option-framework/src/Controllers/OptionController.php',
-        'Haruncpi\\LaravelOptionFramework\\Model\\Option' => __DIR__ . '/..' . '/haruncpi/laravel-option-framework/src/Model/Option.php',
-        'Haruncpi\\LaravelOptionFramework\\ServiceProvider' => __DIR__ . '/..' . '/haruncpi/laravel-option-framework/src/ServiceProvider.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',

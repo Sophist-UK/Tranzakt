@@ -10,7 +10,6 @@
         "barryvdh/laravel-debugbar": "^3.6",
         "bennett-treptow/laravel-migration-generator": "^4.2",
         "guzzlehttp/guzzle": "^7.2",
-        "haruncpi/laravel-option-framework": "^1.0",
         "inertiajs/inertia-laravel": "^0.5.2",
         "jessarcher/laravel-castable-data-transfer-object": "^2.2",
         "kirschbaum-development/eloquent-power-joins": "^2.6",

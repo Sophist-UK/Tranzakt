@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61b958835b75c1c7d1009806357f15a2",
+    "content-hash": "882eb163ebb44ef3b82e7b8971232adf",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -1649,61 +1649,6 @@
                 }
             ],
             "time": "2022-06-20T21:43:11+00:00"
-        },
-        {
-            "name": "haruncpi/laravel-option-framework",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/haruncpi/laravel-option-framework.git",
-                "reference": "125cb6d1a1b73e1a593c5264bcd5bf4d6992ceb3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/haruncpi/laravel-option-framework/zipball/125cb6d1a1b73e1a593c5264bcd5bf4d6992ceb3",
-                "reference": "125cb6d1a1b73e1a593c5264bcd5bf4d6992ceb3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Haruncpi\\LaravelOptionFramework\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Haruncpi\\LaravelOptionFramework\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "cc-by-4.0"
-            ],
-            "authors": [
-                {
-                    "name": "MD.HARUN-UR-RASHID",
-                    "email": "harun.cox@gmail.com"
-                }
-            ],
-            "description": "Manage your laravel application's dynamic settings in one place with various supported input types",
-            "keywords": [
-                "framework",
-                "laravel",
-                "option"
-            ],
-            "support": {
-                "issues": "https://github.com/haruncpi/laravel-option-framework/issues",
-                "source": "https://github.com/haruncpi/laravel-option-framework/tree/v1.0.0"
-            },
-            "time": "2020-02-22T06:12:25+00:00"
         },
         {
             "name": "inertiajs/inertia-laravel",

@@ -118,7 +118,6 @@ return array(
     '356736db98a6834f0a886b8d509b0ecd' => $vendorDir . '/thecodingmachine/safe/generated/zlib.php',
     '4a1f389d6ce373bda9e57857d3b61c84' => $vendorDir . '/barryvdh/laravel-debugbar/src/helpers.php',
     '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
-    'd7d51e94dd70e5b07180984ba3f53065' => $vendorDir . '/haruncpi/laravel-option-framework/src/helpers.php',
     '98caa11a197f6516a8e48aa4abb5ccc6' => $vendorDir . '/inertiajs/inertia-laravel/helpers.php',
     'cb61d74ad51d00867155534456b38b23' => $vendorDir . '/mews/purifier/src/helpers.php',
     'bed883b41aa12d78af4d9b205d119e9d' => $vendorDir . '/mostafaznv/laracache/src/Utils/Helpers.php',
