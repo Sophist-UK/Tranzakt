@@ -14,6 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Database\Seeders\TranzaktSampleAppSeeder
 
 return new class extends Migration
 {
@@ -26,13 +27,13 @@ return new class extends Migration
 
 	// get driver name for DBMS specific actions
 	public function __construct() {
-		$connection_type = Schema::getConnection()->getPdo()->getAttribute(PDO::ATTR_DRIVER_NAME);
-		$this->is_mysql     = $connection_type == 'mysql';
-		$this->is_postgres  = $connection_type == 'postgres';
-		$this->is_sqlserver = $connection_type == 'sqlserver';
-		$this->is_sqlite    = $connection_type == 'sqlite';
+		$this->connection_type = Schema::getConnection()->getPdo()->getAttribute(PDO::ATTR_DRIVER_NAME);
+		echo "Tranzakt schema processing...\nConnection type: " . $this->connection_type . PHP_EOL;
+		$this->is_mysql     = $this->connection_type == 'mysql';
+		$this->is_postgres  = $this->connection_type == 'postgres';
+		$this->is_sqlserver = $this->connection_type == 'sqlserver';
+		$this->is_sqlite    = $this->connection_type == 'sqlite';
 	}
-
 
 	private function common_columns(Blueprint $table, string $comment = '')
 	{
@@ -52,23 +53,21 @@ return new class extends Migration
 
 		// Fields to limit access to specific developers / teams will be added here
 
-		// $table->primary('id');
+		// $table->primary('id'); // Primary key is defined automatically.
 	}
 
 	public function up()
 	{
+		$this->down();
+		$this->create_system_metadata();
+		$this->create_table_metadata();
+	}
 
-		Schema::dropIfExists('Tranzakt_Table_Relationships');
-		Schema::dropIfExists('Tranzakt_Table_Seeds');
-		Schema::dropIfExists('Tranzakt_Table_Indexes');
-		Schema::dropIfExists('Tranzakt_Table_Columns');
-		Schema::dropIfExists('Tranzakt_Tables');
-		Schema::dropIfExists('Tranzakt_Table_Areas');
-		Schema::dropIfExists('Tranzakt_Taggables');
-		Schema::dropIfExists('Tranzakt_Tags');
-		Schema::dropIfExists('Tranzakt_Applications');
-		Schema::dropIfExists('Tranzakt_Databases');
-
+	/**
+	 * Create system wide tables.
+	 */
+	private function create_system_metadata()
+	{
 		Schema::create('Tranzakt_Databases', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
@@ -92,11 +91,11 @@ return new class extends Migration
 				'Tranzact supports development of multiple applications with independent tables'
 			);
 
-			$table->string('app_name');
+			$table->string('app');
 			$table->string('table_prefix', 16);  // The prefix is added to the app_specific table name
 			$table->text('notes');
 
-			$table->unique(['app_name', 'deleted_at'], 'tranzakt_applications_unique_app_name');
+			$table->unique(['app', 'deleted_at'], 'tranzakt_applications_unique_app_name');
 			$table->unique(['table_prefix', 'deleted_at'], 'tranzakt_applications_unique_table_prefix');
 		});
 
@@ -128,7 +127,13 @@ return new class extends Migration
 
 			$table->unique(['tag_id', 'taggable_id', 'taggable_type', 'deleted_at'], 'tranzakt_taggables_unique_tag_id_taggable');
 		});
+	}
 
+	/**
+	 * Create tables metadata tables.
+	 */
+	private function create_table_metadata()
+	{
 		Schema::create('Tranzakt_Table_Areas', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
@@ -261,20 +266,37 @@ return new class extends Migration
 			$table->foreign('foreign_table_id')->references('id')->on('Tranzakt_Tables');
 		});
 
-		echo "tables defined" .PHP_EOL;
+		echo "Tranzakt schema tables defined." .PHP_EOL;
 	}
 
 	public function down()
 	{
-		Schema::dropIfExists('Tranzakt_Databases');
-		Schema::dropIfExists('Tranzakt_Applications');
-		Schema::dropIfExists('Tranzakt_Tags');
-		Schema::dropIfExists('Tranzakt_Taggables');
-		Schema::dropIfExists('Tranzakt_Table_Areas');
-		Schema::dropIfExists('Tranzakt_Tables');
-		Schema::dropIfExists('Tranzakt_Table_Columns');
-		Schema::dropIfExists('Tranzakt_Table_Indexes');
-		Schema::dropIfExists('Tranzakt_Table_Seeds');
+		// Because of foreign key relationships, tables need to be dropped in reverse order
+		$this->drop_table_metadata();
+		$this->drop_system_metadata();
+	}
+
+	/**
+	 * Drop tables metadata tables.
+	 */
+	private function drop_table_metadata()
+	{
 		Schema::dropIfExists('Tranzakt_Table_Relationships');
+		Schema::dropIfExists('Tranzakt_Table_Seeds');
+		Schema::dropIfExists('Tranzakt_Table_Indexes');
+		Schema::dropIfExists('Tranzakt_Table_Columns');
+		Schema::dropIfExists('Tranzakt_Tables');
+		Schema::dropIfExists('Tranzakt_Table_Areas');
+	}
+
+	/**
+	 * Drop system wide tables.
+	 */
+	private function drop_system_metadata()
+	{
+		Schema::dropIfExists('Tranzakt_Taggables');
+		Schema::dropIfExists('Tranzakt_Tags');
+		Schema::dropIfExists('Tranzakt_Applications');
+		Schema::dropIfExists('Tranzakt_Databases');
 	}
 };
