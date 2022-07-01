@@ -14,3 +14,4 @@
 * kirschbaum-development/eloquent-power-joins - do joins with this using proper relationships rather than the join method
 * haruncpi/laravel-option-framework 1.0.0 - easy backend options page
 * archtechx/enums 0.3.0 - enums helpers
+* Spacie Laravel Data objects 1.5.0 - simply conversions between object types
