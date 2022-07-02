@@ -94,14 +94,28 @@ or for specific activities.
 * Mateus Junges' Laravel-ACL for User groups
 * Spatie Laravel-Permission - roles/permissions by Model (database)?
 * Laravel UI (Vue scaffolding)
-* The Control Group's Voyager - Admin feature set which includes:
-    * settings management
-    * BREAD (CRUD) operations
-    * a media manager
-    * menu builder
-    * table management
+* Inertia.js (to simplify Vue usage)
+* dillingham/soft-deletes-parent - we will use soft-deletes, so this is essential but won't install
+  due to version string mismatch "8.37" vs "v8.37.0"
+* wulfheart/pretty_routes 0.3.0 - ditto.
+* https://github.com/kevincobain2000/laravel-erd for ERD diagramming
 
 Note: Need to choose between installed security frameworks or something else.
+
+# Vue research results
+alexjoverm/v-lazy-image
+
+
+# Icon packs
+** https://github.com/blade-ui-kit/blade-icons (though this may need the UI kit which needs Livewire rather than Initial)
+
+    This supports hundreds of icon packages, but has special support for:
+
+    * https://unpkg.com/browse/@heroicons/vue@1.0.6/outline/ with https://github.com/blade-ui-kit/blade-heroicons
+    * http://www.zondicons.com/icons.html with https://github.com/codeat3/blade-zondicons
+
+    * coreui.ui has many icons
+
 
 # Other resources
 This is simply a list of resources that could be useful.
@@ -126,22 +140,89 @@ and remove from the list once a Tranzakt component has been created using it or 
     **Note:** We cannot use Wave out of the box because it is not updated frequently enough, is back level.
     But we can use it as inspiration.
 
-* Jetstream - Fast start Login pages etc.
 * Sentry - A way of getting end-to-end exception reporting. Open Source free usage has been requested.
 
 * Spatie Laravel-backup - integrate automated backups into Tranzakt.
 * Spatie Laravel-medialibrary - integrate media file uploads / thumbnail gen etc.
 * Spatie Browsershot - possible use for creating screenshots for documentation and / or PDF's like Fabrik
 * Spatie Laravel Activity Log - programmable logging to a database table
+* Square laravel-hyrule - for programmatic creation of validation rules (rather than laravel's strings)
+  and for validating arrays.
+* Spatie laravel-data - avoid lots of code transferring attributes from one object to another
+  e.g. request to model
+* spatie/laravel-view-components - moves view logic out of controller enabling single copy of code reused.
 
 For specialised Tranzakt components:
 * Cashier - Stripe payment processing interface
 * Koel - music streaming
 * Flarum - forum software for standalone functionality
-* October CMS - standalone functionality
+* October or phpReel - CMS for standalone functionality
 * Laravel Stats Tracker
 * Laravel tags
 * Bookstack - Wiki software
+* Michael Dyrynda's laravel-model-uuid for UUID elements
+* Torann's laravel-geoip to determine user geographic location from IP
+* Ralph J Smit's laravel-seo
+* Laravel new relic for New Relic performance management support
+* Laravel Navigation (provides scaffolding for navigation - may already be used by Jetstream.
+* Laravel Scout for search
+* LarsWiegers laravel-translations-checker (plus Github action) once we start doing i18n
+* themsaid/laravel-langman-gui for a translation GUI (not sure this is appropriate) once we start doing i18n
+* tonysm/tailwindcss-laravel if using node for tailwind is a problem (doubtful)
+* cerbero90/eloquent-inspector (possibly useful for checking that the actual schema matches the metadata)
+* glhd/laravel-dumper if the laravel dd() function needs enhancing (not yet used this so no idea)
+* xiCO2k/laravel-vue-i18n to integrate Laravel i18n with Vue (which is likely to be needed when we do i18n)
+*
+* TheDragonCode/laravel-cache - will be needed if we start caching URLs for specific data and need to
+  delete cache entries when data is updated.
+* michael-rubel/laravel-formatters - provides locale aware formatters - all numeric formatting should
+  (have an option) to be locale aware.
+* nnjeim/world - provides world data (like a list of countries)
+* squirephp/squire provides static tables containing similar country etc. data
+* nunomaduro/larastan - code static analysis - callable in a Github action.
+* pricecurrent/laravel-eloquent-filters - reusable Eloquent filters (may be useful)
+* current plan is support only common SQL features and not DB implementation-specific features
+  unique to MySQL, MariaDB, PostGres or SQLLite. If we decide to support special features
+  (because use chose e.g. Postgres because of them), then we might need e.g. laravel-postgresql-enhanced
+* spatie/laravel-markdown if we want to support markdown at anypoint
+* 365Werk/etagconditionals to support etags for browser caching
+* coderello/laravel-populated-factory to auto generate test data (once we get phpunit tests)
+* tanmuhittin/laravel-google-translate for automated initial translation using Google.
+
+* generate db migration files from database:
+    * laracademy/generators
+    * kitloong/laravel-migrations-generator
+    * bennett-treptow/laravel-migration-generator
+
+* davestewart/laravel-sketchpad provides an interactive shell for Laravel and
+  davestewart/laravel-sketchpad-reload provides dynamic reload of changed files -
+  whilst these look like they might be VERY useful during early development,
+  neither of these appears to be actively maintained. Videos:
+  * Intro https://www.youtube.com/watch?v=dQ-OL8d5uak
+  * Install https://www.youtube.com/watch?v=lR5f26jhTEo
+  * Usage https://www.youtube.com/watch?v=bKSAONBKuEA
+
+  This last video looks BRILLIANT for fast development so I intend to see if it still works.
+  We should also look at whether this functionality could be useful in Tranzakt proper.
+
+* Spacie Laravel Package Tools - useful when we want to make Tranzakt into a Composer package.
+* Spacie Laravel Model States - useful for multi-step processes separated in time
+  where you want to retain and act on the process state.
+* Spacie Laravel Menu - allows you to define screen menus.
+* Spacie Laravel Settings.
+* haruncpi/laravel-option-framework 1.0.0 - easy backend settings page
+* Spacie Laravel Ignition (nice error / exception display)
+* Spacie Laravel Event Sourcing - extend Tranzakt to support Event Sourced applications.
+* Spacie Laravel Queueable Actions - if we use Actions or support Tranzakt apps which use Actions.
+* Spacie laravel-schemaless-attributes - JSON used like columns.
+
+* The Control Group's Voyager - Admin feature set which appears to be
+  for older versions of Laravel but includes:
+    * settings management
+    * BREAD (CRUD) operations
+    * a media manager
+    * menu builder
+    * table management
 
 Other security:
 * Laratrust / Defender (very similar models) - roles / permissions by user
@@ -149,7 +230,88 @@ Other security:
 Other admin panels:
 * Orchid
 
+# User Interface Design
+Use Storybook?
+
 # Design questions
 We need to decide:
 * Do we need a (Component based) plugin architecture like Fabrik's to keep both disk space and attack surface down
-or can we simply have an enable/disable setting?
+or can we simply have an enable/disable setting? Because of the way things hook in, it might be quite complex to
+hook in an element plugin everywhere needed. Alternatively Composer and Laravel Services might make the whole thing easy.
+
+* Settings hierarchy will need to be defined
+
+* What functionality do we want to enable from the command line
+* Should we use Laravel API for Joomla/Wordpress integration?
+  For security we probably need to authenticate both the server
+  and (for non-anonymous users) the specific J/WP user.
+* How can we do async requests from Joomla/Wordpress to initiate creation of HTML and
+then do a second call to retrieve it?
+
+# Laravel Design
+* To enable compiling, most functionality should be moved to one or more Tranzakt service providers with facades
+and interpreter should make a single (or a few) calls to these based on what is read from the metadata.
+The services should do the heavy lifting.
+This will make translation of interpreted to compiled relatively easy.
+
+* Extensions to Laravel functionality:
+    * Extended Migration class to add standardised common fields to all internal tables.
+
+    * Extended Schema facade etc. to take advantage of specific advanced functionality in
+      each type and version of database server (see https://github.com/zedisdog/laravel-schema-extend
+      for an example)
+
+    * Make non-core stuff into Composer based plugins and provide functionality to install / deinstall it.
+
+    * Use Laravel Services to decouple interpretation of the metadata from runtime execution -
+      this will help enable JIT compiling.
+
+    * Configure Ignition to send errors in production to Flare or use HoneyBadger.
+
+    * What does a Fabrik-equivalent "element" need to contain:
+        * HTML components to display the element in lists, forms (r/w, r/o)
+        * JS to manage validate input and create JS events when the field changes
+        * validation methods for both front-end (HTML/JS) and back-end (Laravel)
+          and for both inbuilt rules and user selected
+        * Laravel events to do server-side processing (just like client-side)
+        * Unit and regression tests for all of the above
+        * Definition of settings that need to be shown and stored (JSON for definition, JSON for storing settings)
+        * I18n
+        * Cast classes (to cast user data to how it is held in the database)
+        * DB definitions for e.g. Pivot tables (for many to many)
+        * Support for themes and dumb browsers i.e. different sets of web components
+        * Support for responsive web (variable width)
+
+    * Need to define HTML metadata for standalone user apps (Page description, structured metadata OpenGraph etc.)
+    * Need to deliver non SPA / simplified HTML pages for search engine robots?
+
+    * Do we want to support Redis in Tranzakt?
+
+# Other
+* If we do anything really clever in ORM (or elsewhere in Laravel) that would be generally useful
+we should try to get it included in Laravel. That said, Laravel is already way ahead of Fabrik
+in respect of what it can do with RDBs.
+
+# Future restructuring
+For development purposes, this is  currently created as a download-from-gitgub stand-alone full website,
+but once it is developed we should restructure this as:
+* A single Laravel Package `Laravel-Tranzakt` that can be added into any site, installable by Composer.
+  This would only have the minimum code necessary to provide Laravel API and possibly RPC API.
+  Use `compose laravel-tranzakt --dev` to get the additional development part.
+  Composer would install any necessary prerequisites, but user would be responsible
+  for integrating it into their site (using documentation we provide).
+* Split out specialised optional functionality into separate Composer packages (like Fabrik plugins)
+* A downloadable standalone website which would have all the additional code to run it
+  either as a stand-alone website or as an RPC server for Joomla/WP.
+  This would have all other add-ons needed to make it work pre-integrated (like Jetpack for admin etc.)
+  and a UI for installing additional plugins.
+
+But for the moment, we are building a single downloadable webserver with everything in a single repo.
+
+When we do this restructuring - allowing users to add Tranzakt to any Laravel installation rather than installing
+an integrated, ready to go website - we will also need to take a view on whether we should support
+JS frameworks other than Inertia+Vue e.g. Livewire+Blade etc.
+
+Also the development will assume e.g. Jetstream for authentication etc. so we may need to
+make authentication and back-end code more generic so that it can interface with alternative
+authentication schemas.
