@@ -8,7 +8,8 @@
  *
  * Seeds for a Sample app are defined in database/seeds/TranzaktSampleApp.php
  *
- * Create tables by running `php artisan migrate --path=database\schema\TranzaktSchema.php`
+ * Remove tables for recreation by running: php artisan migrate:rollback --path=database\schema\TranzaktSchema.php
+ * Create tables by running: php artisan migrate --path=database\schema\TranzaktSchema.php
  */
 
 use Illuminate\Database\Migrations\Migration;
@@ -17,7 +18,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-	// Connection
+	/**
+	 * The database connection that should be used by the migration.
+	 *
+	 * @var string
+	 */
+	protected $connection;
+
+	// Connection type - used for RDBMS specific definitions
 	private $connection_type;
 	private $is_mysql;
 	private $is_postgres;
@@ -26,12 +34,18 @@ return new class extends Migration
 
 	// get driver name for DBMS specific actions
 	public function __construct() {
+		// Get the Tranzakt default connection
+		$this->connection = config('database.tranzakt');
+
+		// Get the connection type
 		$this->connection_type = Schema::getConnection()->getPdo()->getAttribute(PDO::ATTR_DRIVER_NAME);
-		echo "Tranzakt schema processing...\nConnection type: " . $this->connection_type . PHP_EOL;
+		echo "Tranzakt schema processing..." . PHP_EOL .
+			"\tConnection:" . $this->connection . PHP_EOL .
+			"\tConnection type: " . $this->connection_type . PHP_EOL;
 		$this->is_mysql     = $this->connection_type == 'mysql';
 		$this->is_postgres  = $this->connection_type == 'postgres';
 		$this->is_sqlserver = $this->connection_type == 'sqlserver';
-		$this->is_sqlite    = $this->connection_type == 'sqlite';
+		$this->is_sqlite    = $this->connection_type == $this->connection;
 	}
 
 	private function common_columns(Blueprint $table, string $comment = '')
@@ -47,8 +61,10 @@ return new class extends Migration
 		$table->id();
 		$table->bigInteger('user_created_id')->nullable();  // We store details of which user created the record...
 		$table->bigInteger('user_modified_id')->nullable(); // ... and who last updated it.
-		$table->timestamps(); // Standard laravel created / last updated timestamps.
 		$table->softDeletes(); // All records can be sent to trash and recovered.
+		$table->timestamps(); // Standard laravel created / last updated timestamps.
+		$table->userstamps(); // sqits/laravel-userstamps
+		$table->softUserstamps();  // sqits/laravel-userstamps
 
 		// Fields to limit access to specific developers / teams will be added here
 
@@ -67,7 +83,8 @@ return new class extends Migration
 	 */
 	private function create_system_metadata()
 	{
-		Schema::create('tranzakt_databases', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_databases', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'Tranzact supports multiple database connections - default Laravel connection is connection 1'
@@ -84,7 +101,8 @@ return new class extends Migration
 			$table->unique(['host', 'port', 'database', 'deleted_at'], 'tranzakt_databases_unique');
 		});
 
-		Schema::create('tranzakt_applications', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_applications', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'Tranzact supports development of multiple applications with independent tables'
@@ -98,21 +116,26 @@ return new class extends Migration
 			$table->unique(['table_prefix', 'deleted_at'], 'tranzakt_applications_unique_table_prefix');
 		});
 
-		Schema::create('tranzakt_tags', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_tags', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'Tag names and descriptions',
 				False
 			);
 
-			$table->foreignId('app_id')->constrained('tranzakt_applications');
+			$table->foreignId('application_id');
 			$table->string('tag', 64);
 			$table->text('notes');
 
-			$table->unique(['app_id', 'tag', 'deleted_at'], 'tranzakt_tags_unique_app_id_tag');
+			$table->foreign('application_id')->references('id')->on('tranzakt_applications')
+				->onDelete('cascade');
+
+			$table->unique(['application_id', 'tag', 'deleted_at'], 'tranzakt_tags_unique_app_id_tag');
 		});
 
-		Schema::create('tranzakt_taggables', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_taggables', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'Link Tags with tagged items',
@@ -134,7 +157,8 @@ return new class extends Migration
 	 */
 	private function create_table_metadata()
 	{
-		Schema::create('tranzakt_table_areas', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_table_areas', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'Tranzact allows you to group tables into areas for diagramming and documentation purposes'
@@ -151,7 +175,8 @@ return new class extends Migration
 			$table->unique(['application_id', 'area', 'deleted_at'], 'tranzakt_table_areas_unique_app_id_area');
 		});
 
-		Schema::create('tranzakt_tables', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_tables', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'This table holds the list of tables'
@@ -191,7 +216,8 @@ return new class extends Migration
 			$table->unique(['database_id', 'full_name', 'deleted_at'], 'tranzakt_tables_unique_db_id_fullname');
 		});
 
-		Schema::create('tranzakt_table_columns', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_table_columns', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'This table holds details of every column in every table.'
@@ -213,12 +239,14 @@ return new class extends Migration
 			$table->json('options')->nullable();
 			$table->text('notes');
 
-			$table->foreign('table_id')->references('id')->on('tranzakt_tables');
+			$table->foreign('table_id')->references('id')->on('tranzakt_tables')
+				->onDelete('cascade');
 
 			$table->unique(['table_id', 'column', 'deleted_at'], 'tranzakt_columns_unique_table_id_column');
 		});
 
-		Schema::create('tranzakt_table_indexes', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_table_indexes', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'Details of all indexes on all tables.'
@@ -235,7 +263,8 @@ return new class extends Migration
 				->onDelete('cascade');
 		});
 
-		Schema::create('tranzakt_table_seeds', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_table_seeds', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'Tranzakt supports the Laravel concept of seeds i.e. rows created when the tables are created'
@@ -248,7 +277,8 @@ return new class extends Migration
 				->onDelete('cascade');
 		});
 
-		Schema::create('tranzakt_table_relationships', function(Blueprint $table) {
+		Schema::connection($this->connection)
+		->create('tranzakt_table_relationships', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
 				'This table holds details of the relationships between tables and supports Laravel polymorphic relationships'
