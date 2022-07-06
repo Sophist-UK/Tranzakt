@@ -10,8 +10,8 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -175,6 +175,7 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Sqits\\UserStamps\\' => 17,
             'Spatie\\Permission\\' => 18,
             'Spatie\\LaravelPackageTools\\' => 27,
             'Spatie\\LaravelIgnition\\' => 23,
@@ -431,6 +432,10 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Sqits\\UserStamps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sqits/laravel-userstamps/src',
         ),
         'Spatie\\Permission\\' => 
         array (
@@ -5972,6 +5977,11 @@ class ComposerStaticInit662566732d6d23ff18cccb11278af5d5
         'Spatie\\Permission\\Traits\\HasRoles' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Traits/HasRoles.php',
         'Spatie\\Permission\\Traits\\RefreshesPermissionCache' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Traits/RefreshesPermissionCache.php',
         'Spatie\\Permission\\WildcardPermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/WildcardPermission.php',
+        'Sqits\\UserStamps\\Concerns\\HasUserStamps' => __DIR__ . '/..' . '/sqits/laravel-userstamps/src/Concerns/HasUserStamps.php',
+        'Sqits\\UserStamps\\Database\\Schema\\Macros\\MacroInterface' => __DIR__ . '/..' . '/sqits/laravel-userstamps/src/Database/Schema/Macros/MacroInterface.php',
+        'Sqits\\UserStamps\\Database\\Schema\\Macros\\UserStampsMacro' => __DIR__ . '/..' . '/sqits/laravel-userstamps/src/Database/Schema/Macros/UserStampsMacro.php',
+        'Sqits\\UserStamps\\Observers\\UserStampObserver' => __DIR__ . '/..' . '/sqits/laravel-userstamps/src/Observers/UserStampObserver.php',
+        'Sqits\\UserStamps\\UserStampsServiceProvider' => __DIR__ . '/..' . '/sqits/laravel-userstamps/src/UserStampsServiceProvider.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Attribute\\AsCommand' => __DIR__ . '/..' . '/symfony/console/Attribute/AsCommand.php',

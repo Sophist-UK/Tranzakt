@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd83afc0165544b6adfd6e59c69397a877387dc92',
+        'reference' => 'b49444f20ee1e64f155642dfb68da85bed16dc79',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -493,7 +493,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd83afc0165544b6adfd6e59c69397a877387dc92',
+            'reference' => 'b49444f20ee1e64f155642dfb68da85bed16dc79',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1200,6 +1200,17 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../spatie/laravel-permission',
             'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sqits/laravel-userstamps' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '83036f140c34638030730512f88fec365b89d3d4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sqits/laravel-userstamps',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
             'dev_requirement' => false,
         ),
         'symfony/console' => array(
