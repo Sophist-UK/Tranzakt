@@ -66,8 +66,8 @@ return new class extends Migration
 		}
 
 		$table->id();
-		$table->softDeletes(); // All records can be sent to trash and recovered.
 		$table->timestamps(); // Standard laravel created / last updated timestamps.
+		$table->softDeletes(); // All records can be sent to trash and recovered.
 		$table->userstamps(); // sqits/laravel-userstamps
 		$table->softUserstamps();  // sqits/laravel-userstamps
 
@@ -95,14 +95,13 @@ return new class extends Migration
 		// Databases
 		Schema::connection($this->connection)
 		->create('tranzakt_databases', function(Blueprint $table) {
+			$table->string('name', 64);
+			$table->json('connection', 64);
+			$table->text('notes')->nullable();
 			$this->common_columns(
 				$table,
 				'Tranzakt supports multiple database connections'
 			);
-
-			$table->string('name', 64);
-			$table->json('connection', 64);
-			$table->text('notes')->nullable();
 
 			$table->unique(['name', 'deleted_at'], 'tranzakt_database_unique_name');
 		});
@@ -110,14 +109,13 @@ return new class extends Migration
 		// Applications
 		Schema::connection($this->connection)
 		->create('tranzakt_applications', function(Blueprint $table) {
+			$table->string('name');
+			$table->string('table_prefix', 16);  // The prefix is added to the app_specific table name
+			$table->text('notes')->nullable();
 			$this->common_columns(
 				$table,
 				'Tranzakt supports development of multiple applications with independent tables'
 			);
-
-			$table->string('name');
-			$table->string('table_prefix', 16);  // The prefix is added to the app_specific table name
-			$table->text('notes')->nullable();
 
 			$table->unique(['name', 'deleted_at'], 'tranzakt_applications_unique_name');
 			$table->unique(['table_prefix', 'deleted_at'], 'tranzakt_applications_unique_table_prefix');
@@ -126,15 +124,14 @@ return new class extends Migration
 		// Tags
 		Schema::connection($this->connection)
 		->create('tranzakt_tags', function(Blueprint $table) {
+			$table->foreignId('application_id');
+			$table->string('name', 64);
+			$table->text('notes')->nullable();
 			$this->common_columns(
 				$table,
 				'Tag names and descriptions',
 				False
 			);
-
-			$table->foreignId('application_id');
-			$table->string('name', 64);
-			$table->text('notes')->nullable();
 
 			$table->foreign('application_id')->references('id')->on('tranzakt_applications')
 				->onDelete('cascade');
@@ -145,14 +142,13 @@ return new class extends Migration
 		// Taggables
 		Schema::connection($this->connection)
 		->create('tranzakt_taggables', function(Blueprint $table) {
+			$table->foreignId('tag_id');
+			$table->morphs('tranzakt_taggable', 'tranzakt_taggables_index_taggable');
 			$this->common_columns(
 				$table,
 				'Link Tags with tagged items',
 				False
 			);
-
-			$table->foreignId('tag_id');
-			$table->morphs('tranzakt_taggable', 'tranzakt_taggables_index_taggable');
 
 			$table->foreign('tag_id')->references('id')->on('tranzakt_tags')
 				->onDelete('cascade');
@@ -169,14 +165,13 @@ return new class extends Migration
 		// Table areas - for ER Diagrams, boxes around grouped tables
 		Schema::connection($this->connection)
 		->create('tranzakt_table_areas', function(Blueprint $table) {
+			$table->string('name', 64);
+			$table->text('notes')->nullable();
+			$table->foreignId('application_id');
 			$this->common_columns(
 				$table,
 				'Tranzakt allows you to group tables into areas for diagramming and documentation purposes'
 			);
-
-			$table->foreignId('application_id');
-			$table->string('name', 64);
-			$table->text('notes')->nullable();
 
 			$table->foreign('application_id')->references('id')->on('tranzakt_applications')
 				->onDelete('cascade');
@@ -187,13 +182,6 @@ return new class extends Migration
 		// Tables
 		Schema::connection($this->connection)
 		->create('tranzakt_tables', function(Blueprint $table) {
-			$this->common_columns(
-				$table,
-				'This table holds the list of tables'
-			);
-
-			$table->foreignId('application_id');
-			$table->foreignId('database_id');
 			$table->string('name', 64)->comment('Application table name');
 			$table->string('table_name', 64)->comment('Database table name with application prefix');
 			$table->string('comment')->nullable();
@@ -212,9 +200,14 @@ return new class extends Migration
 			$table->json('options')->nullable();
 			$table->text('notes')->nullable();
 			$table->foreignId('area_id')->nullable();
-
 			$table->json('canvas')->nullable()
 						->comment('Holds ER diagram position data');
+			$table->foreignId('application_id');
+			$table->foreignId('database_id');
+			$this->common_columns(
+				$table,
+				'This table holds the list of tables'
+			);
 
 			$table->foreign('application_id')->references('id')->on('tranzakt_applications')
 				->onDelete('cascade');
@@ -230,12 +223,6 @@ return new class extends Migration
 		// Columns
 		Schema::connection($this->connection)
 		->create('tranzakt_table_columns', function(Blueprint $table) {
-			$this->common_columns(
-				$table,
-				'This table holds details of every column in every table.'
-			);
-
-			$table->foreignId('table_id');
 			$table->string('name', 64);
 			$table->string('type', 64)->comment('Laravel column type rather than SQL');
 			$table->boolean('nullable')->default(False);
@@ -246,6 +233,11 @@ return new class extends Migration
 			$table->json('constraints')->nullable();
 			$table->json('options')->nullable();
 			$table->text('notes')->nullable();
+			$table->foreignId('table_id');
+			$this->common_columns(
+				$table,
+				'This table holds details of every column in every table.'
+			);
 
 			$table->foreign('table_id')->references('id')->on('tranzakt_tables')
 				->onDelete('cascade');
@@ -256,17 +248,16 @@ return new class extends Migration
 		// Indexes
 		Schema::connection($this->connection)
 		->create('tranzakt_table_indexes', function(Blueprint $table) {
+			$table->string('name', 64)->nullable();
+			$table->enum('type', ['primary', 'unique', 'non-unique']);
+			$table->json('index_columns');
+			$table->enum('sort_order', ['ASC', 'DESC'])->default('ASC');
+			$table->text('notes')->nullable();
+			$table->foreignId('table_id');
 			$this->common_columns(
 				$table,
 				'Details of all indexes on all tables.'
 			);
-
-			$table->foreignId('table_id');
-			$table->enum('type', ['primary', 'unique', 'non-unique']);
-			$table->string('name', 64)->nullable();
-			$table->json('index_columns');
-			$table->enum('sort_order', ['ASC', 'DESC'])->default('ASC');
-			$table->text('notes')->nullable();
 
 			$table->foreign('table_id')->references('id')->on('tranzakt_tables')
 				->onDelete('cascade');
@@ -275,11 +266,7 @@ return new class extends Migration
 		// Relationships
 		Schema::connection($this->connection)
 		->create('tranzakt_table_relationships', function(Blueprint $table) {
-			$this->common_columns(
-				$table,
-				'This table holds details of the relationships between tables and supports Laravel polymorphic relationships'
-			);
-			$table->string('relationship_name', 64);
+			$table->string('name', 64);
 			$table->string('comment');
 			$table->enum('cardinality', ['0..*', '0..1', '1..*', '1..1']);
 			$table->foreignId('primary_table_id');
@@ -289,6 +276,10 @@ return new class extends Migration
 			$table->text('notes')->nullable();
 			$table->json('canvas')->nullable()
 						->comment('Holds diagramatic data');
+			$this->common_columns(
+				$table,
+				'This table holds details of the relationships between tables and supports Laravel polymorphic relationships'
+			);
 
 			$table->foreign('primary_table_id')->references('id')->on('tranzakt_tables')
 				->onDelete('cascade');
@@ -299,13 +290,12 @@ return new class extends Migration
 		// Seeds
 		Schema::connection($this->connection)
 		->create('tranzakt_table_seeds', function(Blueprint $table) {
+			$table->foreignId('table_id');
+			$table->json('row_values');
 			$this->common_columns(
 				$table,
 				'Tranzakt supports the Laravel concept of seeds i.e. rows created when the tables are created'
 			);
-
-			$table->foreignId('table_id');
-			$table->json('row_values');
 
 			$table->foreign('table_id')->references('id')->on('tranzakt_tables')
 				->onDelete('cascade');
