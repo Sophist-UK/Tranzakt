@@ -66,8 +66,6 @@ return new class extends Migration
 		}
 
 		$table->id();
-		$table->bigInteger('user_created_id')->nullable();  // We store details of which user created the record...
-		$table->bigInteger('user_modified_id')->nullable(); // ... and who last updated it.
 		$table->softDeletes(); // All records can be sent to trash and recovered.
 		$table->timestamps(); // Standard laravel created / last updated timestamps.
 		$table->userstamps(); // sqits/laravel-userstamps
