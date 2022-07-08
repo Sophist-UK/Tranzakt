@@ -87,18 +87,15 @@ return new class extends Migration
 		->create('tranzakt_databases', function(Blueprint $table) {
 			$this->common_columns(
 				$table,
-				'Tranzact supports multiple database connections - default Laravel connection is connection 1'
+				'Tranzact supports multiple database connections'
 			);
 
-			$table->string('connection', 20);
-			$table->string('host');
-			$table->unsignedSmallInteger('port');
-			$table->string('database', 64);
-			$table->string('username', 64);
-			$table->string('password', 64)->nullable();
+			$table->string('name', 64);
+			$table->json('connection', 64);
 			$table->text('notes');
 
-			$table->unique(['host', 'port', 'database', 'deleted_at'], 'tranzakt_databases_unique');
+			// $table->unique(['host', 'port', 'database', 'deleted_at'], 'tranzakt_databases_unique');
+			$table->unique(['connection', 'deleted_at'], 'tranzakt_dabatase_unique');
 		});
 
 		Schema::connection($this->connection)
@@ -192,18 +189,15 @@ return new class extends Migration
 			$table->string('collation', 16)->nullable();
 			$table->string('comment')->nullable();
 			$table->boolean('timestamps')->nullable();
-			$table->boolean('whostamps')->nullable();
+			$table->boolean('userstamps')->nullable();
 			$table->boolean('softdeletes')->nullable();
 			$table->json('constraints')->nullable();
 			$table->json('options')->nullable();
 			$table->text('notes');
 			$table->foreignId('area_id')->nullable();
-			if ($this->is_mysql or $this->is_postgres) {
-				$table->json('canvas')->nullable()
-							->comment('Holds diagramatic data');
-			} else {
-				$table->json('canvas')->nullable();
-			}
+
+			$table->json('canvas')->nullable()
+						->comment('Holds diagramatic data');
 
 			$table->foreign('application_id')->references('id')->on('tranzakt_applications')
 				->onDelete('cascade');
@@ -291,12 +285,8 @@ return new class extends Migration
 			$table->json('columns');
 			$table->boolean('foreign_mandatory');
 			$table->text('notes');
-			if ($this->is_mysql or $this->is_postgres) {
-				$table->json('canvas')->nullable()
-							->comment('Holds diagramatic data');
-			} else {
-				$table->json('canvas')->nullable();
-			}
+			$table->json('canvas')->nullable()
+						->comment('Holds diagramatic data');
 
 			$table->foreign('primary_table_id')->references('id')->on('tranzakt_tables')
 				->onDelete('cascade');

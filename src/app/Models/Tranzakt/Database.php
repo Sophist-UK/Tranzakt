@@ -19,6 +19,15 @@ class Database extends Model
 	protected $table = 'tranzakt_databases';
 
 	/**
+	 * Cast connection as an array
+	 *
+	 * @var array
+	 */
+	protected $casts = [
+		'connection' => 'array',
+	];
+
+	/**
 	 * Get the tables for the application.
 	 */
 	public function tables()
@@ -31,6 +40,6 @@ class Database extends Model
 	 */
 	public function tags()
 	{
-			return $this->morphToMany(Tag::class, 'tranzakt_taggable');
+		return $this->morphToMany(Tag::class, 'tranzakt_taggable');
 	}
 }

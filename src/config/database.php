@@ -16,6 +16,7 @@ return [
 	*/
 
 	'default' => env('DB_CONNECTION', 'mysql'),
+
 	// Tranzakt will use the default connection as standard - you can override it here
 	'tranzakt' => env('DB_CONNECTION', 'mysql'),
 

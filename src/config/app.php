@@ -185,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Providers\TranzaktServiceProvider::class,
 
         /*
          * Application Service Providers...
