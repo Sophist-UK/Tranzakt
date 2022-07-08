@@ -282,6 +282,7 @@ return array(
     'Database\\Factories\\TeamFactory' => $baseDir . '/database/factories/TeamFactory.php',
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
+    'Database\\Seeders\\TranzaktSampleAppSeeder' => $baseDir . '/database/seeders/TranzaktSampleAppSeeder.php',
     'DebugBar\\Bridge\\CacheCacheCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
     'DebugBar\\Bridge\\DoctrineCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
     'DebugBar\\Bridge\\MonologCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/MonologCollector.php',
