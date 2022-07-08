@@ -6,7 +6,7 @@
  * a. System wide definitions for Connections/Databases, Apps, Tags
  * b. Tables to hold all the Metadata needed to define user app Tables.
  *
- * Seeds for a Sample app are defined in database/seeds/TranzaktSampleApp.php
+ * Seeds for a Sample app are defined in database/seeders/TranzaktSampleAppSeeder.php
  *
  * Remove tables for recreation by running: php artisan migrate:rollback --path=database\schema\TranzaktSchema.php
  * Create tables by running: php artisan migrate --path=database\schema\TranzaktSchema.php
@@ -154,12 +154,12 @@ return new class extends Migration
 			);
 
 			$table->foreignId('tag_id');
-			$table->morphs('taggable');
+			$table->morphs('tranzakt_taggable', 'tranzakt_taggables_index_taggable');
 
 			$table->foreign('tag_id')->references('id')->on('tranzakt_tags')
 				->onDelete('cascade');
 
-			$table->unique(['tag_id', 'taggable_id', 'taggable_type', 'deleted_at'], 'tranzakt_taggables_unique_tag_id_taggable');
+			$table->unique(['tag_id', 'tranzakt_taggable_id', 'tranzakt_taggable_type', 'deleted_at'], 'tranzakt_taggables_unique_tag_id_taggable');
 		});
 	}
 
