@@ -170,6 +170,7 @@ For specialised Tranzakt components:
 * Inspector.dev for performance management support
 * Laravel Navigation (provides scaffolding for navigation - may already be used by Jetstream.
 * Laravel Scout for search
+* Laravel-Lang - a set of components to assist with i18n translations.
 * LarsWiegers laravel-translations-checker (plus Github action) once we start doing i18n
 * themsaid/laravel-langman-gui for a translation GUI (not sure this is appropriate) once we start doing i18n
 * tonysm/tailwindcss-laravel if using node for tailwind is a problem (doubtful)
